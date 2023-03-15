@@ -2,20 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const __addTodo = createAsyncThunk(
-  "getTodos",
-  async (payload , thunkAPI)=> {
-    //ㅇㅔ러 핸들링
-    try{
-      const response = await axios.get(`http://localhost:5000/`)
-      console.log(response);
-      return thunkAPI.fulfillWithValue(response.data)
-    }catch(error){
-      console.log('error!')
-      return thunkAPI.rejectWithValue(error)
-    }
-  }
-);
 
 //초깃값
 const initialState = [
@@ -59,27 +45,27 @@ export const todoSlice = createSlice({
           return state.map(item => item.id === payload ? {...item, edit : !item.edit} : item)
         },
         fixTodo: (state, {payload}) => {
-          return state.map(item=> item.id === payload[0] ? {...item,  name:payload[1], title: payload[2], text: payload[3], edit: !item.edit}: item)
+          return state.map(item=> item.id === payload[0] ? {...item, title: payload[1], text: payload[2], edit: !item.edit}: item)
         }
     },
-    extraReducers:{
-      [__addTodo.pending]: (state, action) => {
-        state.isLoading = true;
-        state.isError = false;
-      },
-      [__addTodo.fulfilled]: (state, action) => {
-        console.log("fulfilled",action);
-        state.isLoading = false;
-        state.isError = false;
-        state.todos = action.payload;
-      },
-      [__addTodo.rejected]: (state, action) => {
-        state.isLoading = true;
-        state.isError = true;
-        state.error = action.payload;
-      }
-    }
+    // extraReducers:{
+    //   [__addTodo.pending]: (state, action) => {
+    //     state.isLoading = true;
+    //     state.isError = false;
+    //   },
+    //   [__addTodo.fulfilled]: (state, action) => {
+    //     console.log("fulfilled",action);
+    //     state.isLoading = false;
+    //     state.isError = false;
+    //     state.todos = action.payload;
+    //   },
+    //   [__addTodo.rejected]: (state, action) => {
+    //     state.isLoading = true;
+    //     state.isError = true;
+    //     state.error = action.payload;
+    //   }
+    // }
 });
 
-export const {newTodo,deleteTodo,editTodo,fixTodo,addTodo} = todoSlice.actions;
+export const {newTodo,deleteTodo,editTodo,fixTodo,getTodos,addTodo} = todoSlice.actions;
 export default todoSlice.reducer;

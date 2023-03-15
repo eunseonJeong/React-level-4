@@ -10,8 +10,6 @@ function Main() {
 
   return (
     <div>
-      {/* <List />     */}
-      <h3> 할일 기록하기 </h3>
       <Link to="/">
         <BsFillHouseHeartFill />
       </Link>
@@ -20,8 +18,9 @@ function Main() {
 
       <Button
         style={{
-          width: "200vh",
+          width: "100vh",
           height: "50px",
+          borderRadius:'20px',
           boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
         }}
         onClick={() => navigate("/list")}

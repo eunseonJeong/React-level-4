@@ -8,11 +8,12 @@ import { useDispatch } from "react-redux/es";
 import styled from "styled-components";
 
 function Card({ todo }) {
+
   const [editTitle, setEditTitle] = useState(todo.title);
   const [editText, setEditText] = useState(todo.text);
 
   //이건뭐?.. 묶어서 넘겨 주면 편해ㅇㅋ
-  const updates = [editTitle, editText];
+  const updates = [todo.id, editTitle, editText];
   const [fix, setFix] = useState(false);
 
   const dispatch = useDispatch();
@@ -39,10 +40,9 @@ function Card({ todo }) {
               setEditTitle(e.target.value);
             }}
           />
-
           <StyleBtn
             onClick={(e) => {
-              dispatch(fixTodo(todo, updates));
+              dispatch(fixTodo(updates));
               setFix((fix) => !fix);
             }}
           >

@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom'; // useNavigate 추가
 import { BsFillHouseHeartFill } from "react-icons/bs"; //아이콘
 import { useDispatch } from 'react-redux/es';
 import { newTodo } from '../redux/modules/todoModule';
-import { __addTodo,getTodos } from '../redux/modules/todoModule';
-import { QueryClient, useMutation, useQuery,useQueryClient } from 'react-query';
+// import { __addTodo,getTodos } from '../redux/modules/todoModule';
+// import { QueryClient, useMutation, useQuery,useQueryClient } from 'react-query';
 
 function List() {
-  const {isLoading, isError, data} = useQuery("todos", getTodos)
-  const qureyClient = useQueryClient();
+  // const {isLoading, isError, data} = useQuery("todos", getTodos)
+  // const qureyClient = useQueryClient();
 
   const [name,setName] = useState('');
   const [title,setTitle] = useState('');
@@ -31,12 +31,12 @@ function List() {
   const navigate = useNavigate(); // useNavigate 할당
   console.log(setName)
 
-  if (isLoading) {
-    return <div>로딩 중 ...</div>
-  };
-  if (isError) {
-    return <div>오류가 발생했습니다 ...</div>
-  }
+  // if (isLoading) {
+  //   return <div>로딩 중 ...</div>
+  // };
+  // if (isError) {
+  //   return <div>오류가 발생했습니다 ...</div>
+  // }
 
   return (
     <Style>

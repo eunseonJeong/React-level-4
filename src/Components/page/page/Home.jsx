@@ -10,7 +10,6 @@ const Home = ({isDone}) => {
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {todoList.map((item) => {
             return item.isDone === isDone && <Card key={item.id} todo={item} />;
-
           })}
         </div>
       </>
