@@ -1,9 +1,9 @@
 import React from "react";
-import Home from "../Components/page/page/Home";
 import { Link } from "react-router-dom";
 import { BsFillHouseHeartFill } from "react-icons/bs";
 import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
+import Home from "../Components/page/page/Home";
 
 function Main() {
   const navigate = useNavigate();
@@ -20,14 +20,14 @@ function Main() {
         style={{
           width: "100vh",
           height: "50px",
-          borderRadius:'20px',
+          borderRadius: "20px",
           boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
         }}
         onClick={() => navigate("/list")}
       >
         할 일 추가하기
       </Button>
-      
+
       <h3>TODO LIST</h3>
       <Home isDone={false} />
       <Home isDone={true} />
