@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BsFillHouseHeartFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import Home from "../Components/page/page/Home";
+import Home from "../Components/Home";
 import { StBtn, StForm } from "../shared/styled";
 
 function Main() {
@@ -12,7 +12,7 @@ function Main() {
       <Link to="/">
         <BsFillHouseHeartFill />
       </Link>
-      <h1>무엇을 할까요?</h1>
+      <h2>무엇을 할까요?</h2>
 
       <StBtn onClick={() => navigate("/list")}>할 일 추가하기</StBtn>
 

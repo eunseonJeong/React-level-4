@@ -28,6 +28,22 @@ const initialState: List[] = [
     isDone: true,
     edit: true,
   },
+  {
+    id: 3,
+    name: "j",
+    title: "돈가스",
+    text: "어떄???",
+    isDone: false,
+    edit: false,
+  },
+  {
+    id: 4,
+    name: "춘향",
+    title: "안녕",
+    text: "화이팅@!!!",
+    isDone: true,
+    edit: true,
+  },
 ];
 
 //기능구현
@@ -36,18 +52,20 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     newTodo: (state, { payload }: PayloadAction<List>) => {
-      const a = state.push({
-        id: state.length + 1,
+      const data = state.push({
+        id: Math.random(),
         name: payload.name,
         title: payload.title,
         text: payload.text,
         isDone: false,
         edit: false,
       });
-      console.log("newTodo:", a);
+      console.log("newTodo:", data);
     },
     deleteTodo: (state, { payload }: PayloadAction<number>) => {
-      return state.filter((item) => item.id !== payload);
+      const data = state.filter((item) => item.id !== payload);
+      console.log("deleteTodo:", data);
+      return data;
     },
     // editTodo: (state, { payload }: PayloadAction<List>) => {
     //   return state.map((item) =>
@@ -55,9 +73,11 @@ export const todoSlice = createSlice({
     //   );
     // },
     editTodo: (state, { payload }: PayloadAction<List>) => {
-      return state.map((item) =>
+      const data = state.map((item) =>
         item.id === payload.id ? { ...item, edit: !item.edit } : item
       );
+      console.log("deleteTodo:", data);
+      return data;
     },
     fixTodo: (state, { payload }: PayloadAction<number>) => {
       return state.map((item) =>

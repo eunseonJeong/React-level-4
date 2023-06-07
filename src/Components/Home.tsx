@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { List } from "../redux/modules/todoSlice";
+import { RootState } from "../redux/config/configStore";
 import Card from "./Card";
-import { RootState } from "../../../redux/config/configStore";
-import { List } from "../../../redux/modules/todoSlice";
 
 interface Props {
   isDone: boolean;

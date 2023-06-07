@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import {
+  List,
   deleteTodo,
   editTodo,
   fixTodo,
-} from "../../../redux/modules/todoSlice";
+} from "../redux/modules/todoSlice";
 import { useDispatch } from "react-redux";
-import { StSmallBtn, Styleline } from "../../../shared/styled";
+import { Styleline, StSmallBtn } from "../shared/styled";
 
 interface Todo {
-  id: number;
-  title: string;
-  text: string;
+  todo: List;
 }
 
 function Card({ todo }: Todo) {
@@ -42,14 +41,14 @@ function Card({ todo }: Todo) {
               setEditTitle(e.target.value);
             }}
           />
-          <StSmallBtn
-            onClick={(e) => {
+          {/* <StSmallBtn
+            onClick={() => {
               dispatch(fixTodo(updates));
               setFix((fix) => !fix);
             }}
           >
             수정완료
-          </StSmallBtn>
+          </StSmallBtn> */}
           <StSmallBtn onClick={(e) => setFix((fix) => !fix)}>
             뒤로가기
           </StSmallBtn>
@@ -59,16 +58,19 @@ function Card({ todo }: Todo) {
           {[todo].map((item) => {
             return (
               <div key={item.id}>
-                <div>{item.id}</div>
-                <div>{item.title}</div>
-                <div>{item.text}</div>
+                <h4>name:</h4>
+                {item.name}
+                <h4>title:</h4>
+                {item.title}
+                <h4>text:</h4>
+                {item.text}
                 <StSmallBtn onClick={() => setFix((fix) => !fix)}>
                   수정
                 </StSmallBtn>
                 <StSmallBtn onClick={() => dispatch(deleteTodo(item.id))}>
                   삭제
                 </StSmallBtn>
-                <StSmallBtn onClick={() => dispatch(editTodo(item.id))}>
+                <StSmallBtn onClick={() => dispatch(editTodo(item))}>
                   확인
                 </StSmallBtn>
               </div>

@@ -25,8 +25,6 @@ function List() {
     });
   };
 
-  const { name, title, text } = output;
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -70,7 +68,7 @@ function List() {
           e.preventDefault();
           dispatch(
             newTodo({
-              id: 0, // 이 부분은 적절한 id 값을 지정해주어야 합니다.
+              id: Math.random(),
               name: output.name,
               title: output.title,
               text: output.text,
