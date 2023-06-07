@@ -4,15 +4,21 @@ import {
   editTodo,
   fixTodo,
 } from "../../../redux/modules/todoModule";
-import { useDispatch } from "react-redux/es";
+import { useDispatch } from "react-redux";
 import { StSmallBtn, Styleline } from "../../../shared/styled";
 
-function Card({ todo }) {
-  const [editTitle, setEditTitle] = useState(todo.title);
-  const [editText, setEditText] = useState(todo.text);
+interface Todo {
+  id: number;
+  title: string;
+  text: string;
+}
 
-  const updates = [todo.id, editTitle, editText];
-  const [fix, setFix] = useState(false);
+function Card({ todo }: { todo: Todo }) {
+  const [editTitle, setEditTitle] = useState<string>(todo.title);
+  const [editText, setEditText] = useState<string>(todo.text);
+
+  const updates: [number, string, string] = [todo.id, editTitle, editText];
+  const [fix, setFix] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -20,9 +26,7 @@ function Card({ todo }) {
     <div>
       {fix ? (
         <Styleline key={todo.id}>
-          <label todoList For="">
-            제목:
-          </label>
+          <label htmlFor="todoList">제목:</label>
           <input
             type="text"
             value={editText}
@@ -30,7 +34,7 @@ function Card({ todo }) {
               setEditText(e.target.value);
             }}
           />
-          <label htmlFor="">내용:</label>
+          <label htmlFor="todoList">내용:</label>
           <input
             type="text"
             value={editTitle}

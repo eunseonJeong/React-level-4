@@ -1,7 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillHouseHeartFill } from "react-icons/bs";
-import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
 import Home from "../Components/page/page/Home";
 import { StBtn, StForm } from "../shared/styled";

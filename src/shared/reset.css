@@ -17,7 +17,6 @@ form,
 fieldset,
 input,
 textarea,
-button,
 select {
   margin: 0;
   padding: 0;
@@ -50,14 +49,6 @@ embed,
 object,
 iframe {
   border: 0;
-}
-
-/* 버튼 스타일 초기화 */
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
 }
 
 /* 기타 스타일 초기화 및 재정의 */
