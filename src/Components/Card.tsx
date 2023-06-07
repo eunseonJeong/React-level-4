@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   List,
   deleteTodo,
@@ -21,6 +21,11 @@ function Card({ todo }: Todo) {
 
   const dispatch = useDispatch();
 
+  const deleteBtnHandler = (id: number) => {
+    alert("삭제할거야?");
+    dispatch(deleteTodo(id));
+  };
+
   return (
     <div>
       {fix ? (
@@ -41,14 +46,14 @@ function Card({ todo }: Todo) {
               setEditTitle(e.target.value);
             }}
           />
-          {/* <StSmallBtn
+          <StSmallBtn
             onClick={() => {
               dispatch(fixTodo(updates));
               setFix((fix) => !fix);
             }}
           >
             수정완료
-          </StSmallBtn> */}
+          </StSmallBtn>
           <StSmallBtn onClick={(e) => setFix((fix) => !fix)}>
             뒤로가기
           </StSmallBtn>
@@ -67,7 +72,7 @@ function Card({ todo }: Todo) {
                 <StSmallBtn onClick={() => setFix((fix) => !fix)}>
                   수정
                 </StSmallBtn>
-                <StSmallBtn onClick={() => dispatch(deleteTodo(item.id))}>
+                <StSmallBtn onClick={() => deleteBtnHandler(item.id)}>
                   삭제
                 </StSmallBtn>
                 <StSmallBtn onClick={() => dispatch(editTodo(item))}>

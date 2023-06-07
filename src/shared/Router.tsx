@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "../page/Main";
 import List from "../page/List";
+import Header from "../Components/Header";
 
 const Router = () => {
+  <Header />;
   return (
     <BrowserRouter>
       <Routes>

@@ -76,15 +76,18 @@ export const todoSlice = createSlice({
       const data = state.map((item) =>
         item.id === payload.id ? { ...item, edit: !item.edit } : item
       );
-      console.log("deleteTodo:", data);
+      console.log("editTodo:", data);
       return data;
     },
     fixTodo: (state, { payload }: PayloadAction<number>) => {
-      return state.map((item) =>
+      const data = state.map((item) =>
         item.id === payload[0]
           ? { ...item, title: payload[1], text: payload[2], edit: !item.edit }
           : item
       );
+      console.log("fixTodo:", data);
+
+      return data;
     },
   },
 });
