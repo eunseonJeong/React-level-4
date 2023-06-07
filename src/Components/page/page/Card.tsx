@@ -3,7 +3,7 @@ import {
   deleteTodo,
   editTodo,
   fixTodo,
-} from "../../../redux/modules/todoModule";
+} from "../../../redux/modules/todoSlice";
 import { useDispatch } from "react-redux";
 import { StSmallBtn, Styleline } from "../../../shared/styled";
 
@@ -13,7 +13,7 @@ interface Todo {
   text: string;
 }
 
-function Card({ todo }: { todo: Todo }) {
+function Card({ todo }: Todo) {
   const [editTitle, setEditTitle] = useState<string>(todo.title);
   const [editText, setEditText] = useState<string>(todo.text);
 

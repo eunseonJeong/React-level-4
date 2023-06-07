@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillHouseHeartFill } from "react-icons/bs"; //아이콘
 import { useDispatch } from "react-redux/es";
-import { newTodo } from "../redux/modules/todoModule";
+import { newTodo } from "../redux/modules/todoSlice";
 import { StBtn, StForm, StInput } from "../shared/styled";
 
 interface Output {
@@ -68,7 +68,16 @@ function List() {
       <StBtn
         onClick={(e) => {
           e.preventDefault();
-          dispatch(newTodo({ name, title, text }));
+          dispatch(
+            newTodo({
+              id: 0, // 이 부분은 적절한 id 값을 지정해주어야 합니다.
+              name: output.name,
+              title: output.title,
+              text: output.text,
+              isDone: false,
+              edit: false,
+            })
+          );
           navigate("/");
         }}
       >
