@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "../page/Main";
 import List from "../page/List";
 
@@ -7,7 +7,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="list" element={<List />} />
+        <Route path="/list" element={<List />} />
       </Routes>
     </BrowserRouter>
   );

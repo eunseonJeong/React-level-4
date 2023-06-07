@@ -1,0 +1,76 @@
+/* Reset CSS */
+
+/* 전체 요소의 여백과 패딩 초기화 */
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+form,
+fieldset,
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+/* 글꼴 초기화 */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* 링크 스타일 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 리스트 스타일 초기화 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 기타 요소 스타일 초기화 */
+img,
+embed,
+object,
+iframe {
+  border: 0;
+}
+
+/* 버튼 스타일 초기화 */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 기타 스타일 초기화 및 재정의 */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  line-height: 1;
+}

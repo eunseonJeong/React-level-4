@@ -1,18 +1,24 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // useNavigate 추가
+import React, { ChangeEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillHouseHeartFill } from "react-icons/bs"; //아이콘
 import { useDispatch } from "react-redux/es";
 import { newTodo } from "../redux/modules/todoModule";
-import { StForm, StInput } from "../shared/styled";
+import { StBtn, StForm, StInput } from "../shared/styled";
+
+interface Output {
+  name: string;
+  title: string;
+  text: string;
+}
 
 function List() {
-  const [output, setOutput] = useState({
+  const [output, setOutput] = useState<Output>({
     name: "",
     title: "",
     text: "",
   });
 
-  const onChangeHandler = (event) => {
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     setOutput((old) => {
       return { ...old, [name]: value };
@@ -53,16 +59,13 @@ function List() {
       <StInput
         type="text"
         placeholder="내용을 입력해주세요. (200자 이내)"
-        style={{
-          height: "300px",
-        }}
         required
         value={output.text}
         name="text"
         onChange={onChangeHandler}
       />
 
-      <button
+      <StBtn
         onClick={(e) => {
           e.preventDefault();
           dispatch(newTodo({ name, title, text }));
@@ -70,7 +73,7 @@ function List() {
         }}
       >
         추가하기
-      </button>
+      </StBtn>
     </StForm>
   );
 }

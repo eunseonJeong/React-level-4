@@ -4,34 +4,24 @@ import { BsFillHouseHeartFill } from "react-icons/bs";
 import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
 import Home from "../Components/page/page/Home";
+import { StBtn, StForm } from "../shared/styled";
 
 function Main() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <StForm>
       <Link to="/">
         <BsFillHouseHeartFill />
       </Link>
-      <h3>모두의 투두리스트 </h3>
       <h1>무엇을 할까요?</h1>
 
-      <Button
-        style={{
-          width: "100vh",
-          height: "50px",
-          borderRadius: "20px",
-          boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
-        }}
-        onClick={() => navigate("/list")}
-      >
-        할 일 추가하기
-      </Button>
+      <StBtn onClick={() => navigate("/list")}>할 일 추가하기</StBtn>
 
       <h3>TODO LIST</h3>
       <Home isDone={false} />
       <Home isDone={true} />
-    </div>
+    </StForm>
   );
 }
 
