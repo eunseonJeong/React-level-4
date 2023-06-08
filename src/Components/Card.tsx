@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   List,
   deleteTodo,
@@ -12,11 +12,22 @@ interface Todo {
   todo: List;
 }
 
+export interface IUpdate {
+  id: number;
+  title: string;
+  text: string;
+}
 function Card({ todo }: Todo) {
   const [editTitle, setEditTitle] = useState<string>(todo.title);
   const [editText, setEditText] = useState<string>(todo.text);
 
-  const updates: [number, string, string] = [todo.id, editTitle, editText];
+  // const updates: (number | string)[] = [todo.id, editTitle, editText];
+  const updates: IUpdate = {
+    id: todo.id,
+    title: editTitle,
+    text: editText,
+  };
+
   const [fix, setFix] = useState<boolean>(false);
 
   const dispatch = useDispatch();

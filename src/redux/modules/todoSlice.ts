@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { IUpdate } from "../../Components/Card";
 
 export type List = {
   id: number;
@@ -79,7 +80,7 @@ export const todoSlice = createSlice({
       console.log("editTodo:", data);
       return data;
     },
-    fixTodo: (state, { payload }: PayloadAction<number>) => {
+    fixTodo: (state, { payload }: PayloadAction<IUpdate>) => {
       const data = state.map((item) =>
         item.id === payload[0]
           ? { ...item, title: payload[1], text: payload[2], edit: !item.edit }
